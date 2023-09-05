@@ -1,7 +1,10 @@
+@charset "utf-8";
+
 html,body{
     margin: 0 auto;
     padding: 0;
     text-align: center;
+    font-family: 'Sawarabi Mincho', serif;
 }
 
 /* 背景画像 */
@@ -13,93 +16,360 @@ html,body{
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* ヘッダー */
-header{
-    background-color: black;
-    padding: 15px;
-    opacity: 0.8;
+/* ===============
+ナビゲーションメニュー
+=============== */
+
+/*==ヘッダーの形状*/
+.wide-area-header{
+    width:100%;
+}
+
+#header{
+    background-color:#333;
+    margin: 0 auto;
+    height: 50px;
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:white;
+    padding: 20px;
+    font-size: 1em;
     text-align: center;
 }
 
-h1{
-    font-family: 'Sawarabi Mincho', serif;
-    margin: 0;
-    padding: 5px;
+#header h1 a{
+    text-decoration: none;
+    list-style: none;
+    color: white;
 }
 
-/* ナビゲーションメニュー */
-nav{
+#nav ul {
     display: flex;
-    justify-content: space-between;
-    font-size: 30px;
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-nav a {
-    font-family: 'Sawarabi Mincho', serif;
-    color: white;
     text-decoration: none;
+    list-style: none;
 }
 
-nav a:hover {
-    color: white;
+#nav ul li a {
     text-decoration: none;
-    opacity: 0.5;
+    list-style: none;
+    color: white;
+    margin-right: 15px;
 }
 
-.other-nav a{
-    margin-right: 20px;
+.menu-sp, #nav-sp {
+    display: none;
 }
+
+
+/* ===============
+ナビゲーションメニュー レスポンシブ
+=============== */
+@media screen and (max-width:488px) {
+    .wide-area-header{
+        display: none;
+    }
+    /*ボタン全体の形状*/
+    .menu-sp{
+        /*はじめは非表示に*/
+        display: block;
+        /*ボタンの位置*/
+        position:fixed;
+        top:10px;
+        right: 10px;
+        z-index: 999;
+        /*ボタンの形状*/
+        background:#666;
+        cursor: pointer;
+        width: 50px;
+        height:50px;
+        border-radius: 5px;
+    }
+
+    /*ボタンのアイコン設定*/
+    .menu-sp span{
+        display: inline-block;
+        transition: all .4s;
+        position: absolute;
+        left: 14px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #fff;
+        width: 45%;
+      }
+
+    .menu-sp span:nth-of-type(1) {
+      top:15px; 
+    }
+
+    .menu-sp span:nth-of-type(2) {
+      top:23px;
+    }
+
+    .menu-sp span:nth-of-type(3) {
+      top:31px;
+    }
+    /*activeクラスが付与されると線が回転して×に*/
+
+    .menu-sp.active span:nth-of-type(1) {
+        top: 18px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+    }
+
+    .menu-sp.active span:nth-of-type(2) {
+      opacity: 0;/*真ん中の線は透過*/
+    }
+
+    .menu-sp.active span:nth-of-type(3){
+        top: 30px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+    }
+
+    #nav-sp.active{
+        display: block;
+        position: fixed;
+        top:20;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(3, 3, 3, 0.8);
+    }
+    
+    #nav-sp.active ul li {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    #nav-sp.active ul li:nth-child(1){
+        position: fixed;
+        top: 100px;
+        left: 0;
+        right: 0;
+    }
+    #nav-sp.active ul li:nth-child(2){
+        position: fixed;
+        top: 180px;
+        left: 0;
+        right: 0;
+    }
+    #nav-sp.active ul li:nth-child(3){
+        position: fixed;
+        top: 260px;
+        left: 0;
+        right: 0;
+    }
+
+    
+    #nav-sp.active ul li a{
+        color: white;
+        font-size: 20px;
+        list-style: none;
+        text-decoration: none;
+    }
+
+}
+
+
 
 /* メイン */
 main{
     max-width: 960px;
     text-align: center;
     margin: 0 auto;
+    padding: 0;
 }
 
-main > h1{
-    margin-top: 10px;
+
+/* ===============
+ストーリー　イントロ
+=============== */
+
+.complex_section{
+    font-family: 'Kosugi Maru', sans-serif;
+    background-color: rgba(109, 206, 151, 0.7);
+    border-radius: 5px;
 }
 
-/* コピーライティングセクション */
+.complex_section > h1{
+    padding-top: 20px;
+}
+
+
+.complex_detail{
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-top: 30px;
+}
+
+.complex_section img{
+    width: 350px;
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.worried-list{
+    list-style: none;
+    font-size: 30px;
+    text-align: left;
+}
+.worried-list >li{
+    background:linear-gradient(transparent 70%, #ffa599 0%);
+    margin: 20px 20px 0px 20px;
+}
+
+/* ===============
+セクション導入のつなぎ
+=============== */
+.introduction{
+    margin: 0;
+    display: flex;
+    align-items: center; /* 垂直中心 */
+    justify-content: center; /* 水平中心 */
+    background-color: white;
+    height: 120px;
+}
+
+.introduction::before, .introduction::after{
+    border-top: 2px solid;
+    content: "";
+    width: 13em;
+}
+
+.introduction::before{
+    margin-right: 1em; /* 文字の右隣 */
+}
+
+.introduction::after{
+    margin-left: 1em; /* 文字の右隣 */
+}
+
+.launch-cream-text{
+    color: rgb(220, 0, 0);
+    font-weight: bold;
+}
+
+.introduction p {
+    font-size: 2em;
+    font-family: 'Sawarabi Mincho', serif;
+}
+
+
+/* =====
+コピーライティングセクション
+===== */
+.copy-write-area{
+    background-color: rgba(232, 232, 247, 0.8);
+    border-radius: 5px;
+    padding-bottom: 20px;
+}
+
+/* =====
+コピーライティングのテキスト
+===== */
+
 .copy_writing_section{
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+    align-items: center;
 }
 
 /* 女性の画像 */
 .image-photo img {
-    width: 250px;
-    opacity: 0.8;
-    border-radius: 5%;
-    margin: 30px 60px 0px 0;
+    width: 280px;
+    opacity: 0.9;
+    margin: 10px 0px 0px 60px;
 }
 
-/* コピーライティングのテキスト */
-.detail-description{
-    font-size: 25px;
-    font-family: 'Sawarabi Mincho', serif;
-    text-align: left;
+.cream-image-area{
+    font-family: 'Shippori Mincho', serif;
+    display: flex;
+    justify-content: center; /* 水平中心 */
+    align-items: center;
+    padding-top: 20px;
 }
 
-.detail-description span{
-    color: rgb(220, 0, 0);
+.cream-img{
+    margin-right: 30px;
+}
+
+.cream-img img{
+    width: 340px;
+    border: 1px solid skyblue;
+    border-radius: 5px;
+}
+
+.cream-introduction{
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 .emphasize-description{
     font-size: 40px;
+    color: rgb(220, 0, 0);
 }
 
-/* 3つの嬉しい効能セクション */
+/* コピーライトのリスト部分 */
+
+.copywriting-description{
+    font-size: 30px;
+    font-family: 'Sawarabi Mincho', serif;
+    text-align: left;
+}
+
+.detail-description-list{
+    padding: 0;
+}
+.detail-description-list li{
+    margin-top: 18px;
+    list-style: none;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Shippori Mincho', serif;
+    color: rgb(218, 0, 0);
+}
+
+/* ====
+3つの嬉しい効能セクション
+==== */
+.section-title {
+    font-family: 'Sawarabi Mincho', serif;
+    position: relative;
+    text-align: center;
+    background-color: rgba(220, 0, 0, 0.9);
+    color: white;
+    margin-top: 0;
+    border-radius: 5px;
+    height: 120px;
+    line-height: 120px;
+}
+
+.section-title::after {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin: 0 0 0 -50px;
+    border: 50px solid transparent;
+    border-top-color: rgb(220, 0 ,0 );
+    content: '';
+}
+
 .three-main-effecacies{
     height: 350px;
-}
-
-.section-title{
-    font-size: 40px;
-    color: rgb(220, 0, 0);
+    padding-top: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
 }
 
 .three-effecacies{
@@ -110,43 +380,72 @@ main > h1{
 }
 
 .circle{
-    width: 220px;
-    height: 220px;
-    line-height: 220px;
+    width: 250px;
+    height: 250px;
+    line-height: 250px;
     text-align: center;
     font-family: 'Sawarabi Mincho', serif;
-    background: linear-gradient(to bottom left, rgba(255, 196, 163, 0.8), rgba(250, 136, 175, 0.8));
+    background: linear-gradient(to bottom left, rgb(246, 169, 125), rgba(250, 136, 175, 1));
     border-radius: 50%;
-    font-size: 20px;
-    color: rgb(220, 0, 0);
+    font-size: 28px;
+    color: rgb(246, 243, 243);
+    font-weight: bold;
 }
 
-/* 購入ボタンセクション */
+/* =====
+購入ボタンセクション
+===== */
 .purchase-section{
-    height: 220px;
-    padding: 20px 0 5px 0;
+    height: 380px;
     text-align: center;
     margin: 0 auto;
-}
-
-.purchase-section p {
-    font-size: 22px;
-    margin: 10px auto;
-    padding: 0;
-    width: 400px;
-    color: rgb(220, 0 ,0 );
+    border-radius: 5px;
+    background-color: white;
     font-family: 'Sawarabi Mincho', serif;
 }
 
+.purchase-intro{
+    background-color: rgb(80, 244, 165);
+    margin: 0;
+    border-radius: 5px;
+    height: 50px;
+    font-size: 2em;
+    color: rgb(220, 0, 0);
+    height: 120px;
+    line-height: 120px;
+}
+
+.purchase-intro::before{
+    content: "＼　";
+}
+.purchase-intro::after{
+    content: "　／";
+}
+
+.purchase-detail{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.sale-detail{
+    margin-right: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: rgb(220, 0, 0);
+    align-items: center;
+    font-size: 25px;
+}
+
+
 .purchase-button{
-    display: block;
-    width: 400px;
-    height: 100px;
-    margin: 0px auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    align-items: center;
     color: rgb(255, 250, 250);
-    border-radius: 20px;
     background-color: rgb(242, 58, 121);
-    font-size: 45px;
+    font-size: 24px;
     font-family: 'Sawarabi Mincho', serif;
     box-shadow: 5px 3px 0 rgba(0, 0, 0, 0.5);
     transition: .3s;
@@ -180,27 +479,41 @@ footer{
     display: none;
 }
 
-@media screen and (min-width: 922px){
-    .aging{
-        position: absolute;
-        top: 10%;
-        left: 18%;
-    }
-    
+@media screen and (min-width: 960px){
     .anti-stain{
         position: absolute;
-        top: 10%;
+        top: 5%;
+        left: 14%;
+    }
+    
+    .aging{
+        position: absolute;
+        top: 5%;
         left: 38%;
     }
     
     .moisturizing{
         position: absolute;
-        top: 10%;
-        left: 58%;
+        top: 5%;
+        left: 62%;
     }
 }
 
-@media screen and (max-width: 921px) and (min-width:758px) {
+
+@media screen and (max-width: 960px) and (min-width:788px) {
+    .worried-list{
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
+    }
+    .detail-description-list{
+        margin-left: 20px;
+    }
+
+    .image-photo img {
+        margin: 0;
+    }
+    
     .three-main-effecacies{
         height: 300px;
     }
@@ -211,20 +524,35 @@ footer{
         margin: 20px auto 0 auto;
     }
     .circle{
-        width: 180px;
-        height: 180px;
-        line-height: 180px;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
         margin: 10px;
-        text-align: center;
-        font-family: 'Sawarabi Mincho', serif;
-        background: linear-gradient(to bottom left, rgba(255, 196, 163, 0.8), rgba(250, 136, 175, 0.8));
-        border-radius: 50%;
-        font-size: 18px;
-        color: rgb(220, 0, 0);
+        font-size: 25px;
+    }
+    .for-responsive{
+        display: inline;
     }
 }
 
-@media (max-width:757px) {
+
+@media (max-width:787px) and (min-width: 443px) {
+    body{
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .complex_detail{
+        display: block;
+        height: 450px;
+    }
+
+    .worried-list{
+        text-align: center;
+        width: 400px;
+        font-size: 25px;
+        margin: 0 auto;
+    }
     .copy_writing_section{
         display: block;
         margin: 0 auto;
@@ -238,6 +566,20 @@ footer{
         font-family: 'Sawarabi Mincho', serif;
         text-align: center;
     }
+
+    .cream-image-area{
+        display: block;
+    }
+
+    .copy_writing_section{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .detail-description-list{
+        font-size: 25px;
+    }
+
     .emphasize{
         color: rgb(220, 0, 0);
         font-size: 35px;
@@ -246,9 +588,9 @@ footer{
         font-size: 30px;
         color: rgb(220, 0, 0);
     }
-    .section-title{
-        font-size: 30px;
-        color: rgb(220, 0, 0);
+
+    .for-responsive{
+        display: inline;
     }
 
     .three-main-effecacies{
@@ -259,18 +601,176 @@ footer{
         justify-content: center;
     }
     .circle{
-        width: 120px;
-        height: 120px;
-        line-height: 120px;
-        margin: 2px;
-        text-align: center;
-        font-family: 'Sawarabi Mincho', serif;
-        background: linear-gradient(to bottom left, rgba(255, 196, 163, 0.8), rgba(250, 136, 175, 0.8));
-        border-radius: 50%;
-        font-size: 14px;
-        color: rgb(220, 0, 0);
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        margin: 3px;
+        font-size: 18px;
+    }
+    .purchase-section{
+        width: 100%;
+        height: 440px;
+    }
+    .purchase-detail{
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sale-detail{
+        font-size: 25px;
+    }
+
+    .purchase-button{
+        width: 250px;
+        height: 110px;
+        font-size: 20px;
+        border-radius: 10px;
+
     }
     .for-responsive{
         display: inline;
+    }
+}
+
+@media screen and (max-width: 442px) {
+    body{
+        font-size: 9px;
+    }
+    .emphasize, .emphasize-description{
+        font-size:1em;
+    }
+
+    .complex_section{
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .complex_detail{
+        display: block;
+    }
+    .worried-description, .worried-list{
+        font-size: 1em;
+        margin: 0;
+        padding: 2px;
+    }
+
+    .worried-list> li{
+        width: 90%;
+        text-align: center;
+        margin-bottom: 10px;
+        background: none
+    }
+
+    .cream-image-area{
+        display: block;
+    }
+    
+    .cream-img > img{
+        width: 100%;
+    }
+
+    .woman-image > img {
+        width: 100%;
+    }
+
+    .introduction{
+        font-size: 1em;
+    }
+    .introduction::before, .introduction::after{
+        display: none;
+    }
+
+    .copy_writing_section, .copywriting-description, .detail-description-list{
+        margin: 0;
+    }
+
+    .copy_writing_section{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .image-photo > img{
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 0;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .detail-description-list >li{
+        font-size: 15px;
+    }
+
+    .section-title{
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .section-title::after{
+        display: none;
+    }
+
+    .three-main-effecacies{
+        padding: 0;
+        margin: 0;
+        height:200px
+    }
+
+    .three-effecacies{
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .circle{
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        line-height: 50px;
+        margin-top: 10px;
+        font-size: 2em;
+    }
+
+    .purchase-section{
+        height: 300px;
+    }
+
+    .purchase-intro{
+        height: 50px;
+        line-height: 50px;
+        width: 100%;
+    }
+
+    .purchase-intro::before, .purchase-intro::after{
+        display: none;
+    }
+
+    .purchase-detail{
+        display: block;
+        font-size: 1em;
+    }
+    
+    .sale-detail{
+        font-size: 2em;
+        margin: 0;
+    }
+
+    .purchase-button{
+        border-radius: 10px;
+        height: 50px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 1.2em;
+    }
+
+    .for-responsive{
+        display: inline;
+    }
+
+    footer{
+        font-size: 1em;
     }
 }

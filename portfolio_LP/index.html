@@ -14,75 +14,145 @@
       href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>エイジングケアを想定したLP</title>
   </head>
   <body>
+    <!-- 背景画像 -->
     <div class="background-img">
       <div class="background-opacity">
-        <header>
+        <div class="wide-area-header">
+          <header id="header">
+            <h1><a href="/">My Portfolio</a></h1>
+            <nav id="nav">
+              <ul>
+                <li><a href="/">TOP Page</a></li>
+                <li>
+                  <a href="https://github.com/Yu0130fri" target="_blank"
+                    >My GitHub</a
+                  >
+                </li>
+                <li><a href="#">Sample</a></li>
+              </ul>
+            </nav>
+          </header>
+        </div>
+        <div class="menu-sp"><span></span><span></span><span></span></div>
+        <div id="nav-sp">
           <nav>
-            <div class="main-nav">
-              <a href="/">My Portfolio</a>
-            </div>
-            <div class="other-nav">
-              <a href="https://github.com/Yu0130fri" target="_blank"
-                >My GitHub</a
-              >
-              <a href="">Sample</a>
-            </div>
+            <ul>
+              <li><a href="/">My Portfolio</a></li>
+              <li>
+                <a href="https://github.com/Yu0130fri" target="_blank"
+                  >My GitHub</a
+                >
+              </li>
+              <li><a href="#">Sample</a></li>
+            </ul>
           </nav>
-        </header>
+        </div>
+
         <main>
           <h1>
-            <span class="emphasize">40代</span>から気になる<span
-              class="emphasize"
-              >シワに届く！</span
-            >
+            <span class="emphasize">40代</span>から気になる<br
+              class="for-responsive"
+            /><span class="emphasize">シワに届くクリームが誕生！</span>
           </h1>
-          <!-- copy writing -->
-          <div class="copy_writing_section">
-            <div class="image-photo">
-              <img src="images/woman.png" alt="女性" />
-            </div>
-            <div class="detail-description">
-              <p>
-                これ一つで<br class="for-responsive" /><span
-                  class="emphasize-description"
-                  >エイジングケア！</span
-                >
-              </p>
-              <p>
-                <span>肌に潤い</span>をもたらし、<br />
-                気になる<span>シワに直接届く！</span>
-              </p>
+          <!-- complex section -->
+          <div class="complex_section">
+            <h1>こんな悩みはありませんか？</h1>
+            <div class="complex_detail">
+              <div class="woman-image">
+                <img src="images/worring_woman.png" alt="悩む女性" />
+              </div>
+              <div class="worried-description">
+                <ul class="worried-list">
+                  <li>シワが深くなってきた</li>
+                  <li>知らないうちにシミができた</li>
+                  <li>肌の乾燥が気になる</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <hr />
+
+          <!-- Introduce the Cream -->
+          <div class="introduction">
+            <p class="launch-cream-text">そんな方に必見のクリームが登場！</p>
+          </div>
+
+          <!-- copy writing -->
+          <div class="copy-write-area">
+            <div class="cream-image-area">
+              <div class="cream-img">
+                <img src="images/cream_target.png" alt="クリーム" />
+              </div>
+              <div class="cream-introduction">
+                <p>
+                  必要なスキンケアは<br class="for-responsive" /><span
+                    class="emphasize-description"
+                    >これ一つだけ！</span
+                  >
+                </p>
+                <p>
+                  毎日塗るだけで<span class="emphasize-description"
+                    >全て解決！</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="copy_writing_section">
+              <div class="copywriting-description">
+                <ul class="detail-description-list">
+                  <li>シミにビタミンが直接届く！</li>
+                  <li>エイジングケアに効く成分配合！</li>
+                  <li>肌の潤いアップ！</li>
+                </ul>
+              </div>
+              <div class="image-photo">
+                <img src="images/woman.png" alt="女性" />
+              </div>
+            </div>
+          </div>
 
           <!-- Three Main Efficacies -->
+          <h1 class="section-title">3つの嬉しい効能</h1>
           <div class="three-main-effecacies">
-            <div>
-              <h1 class="section-title">3つの嬉しい効能</h1>
-            </div>
             <div class="three-effecacies">
-              <div class="circle aging">エイジングケア</div>
               <div class="circle anti-stain">シミ対策</div>
+              <div class="circle aging">エイジングケア</div>
               <div class="circle moisturizing">保湿</div>
             </div>
+            <div class="three-effecacy-details"></div>
           </div>
 
-          <hr />
           <!-- Buy Button section -->
           <div class="purchase-section">
-            <p>＼　今だけお得な割引セール　／</p>
-            <button class="purchase-button">今すぐ申し込む</button>
+            <h3 class="purchase-intro">今だけお得な割引セール</h3>
+            <div class="purchase-detail">
+              <div class="sale-detail">
+                <p>今なら対象のクリームが20%OFF！</p>
+                <p>次回半額になるクーポンもセット！</p>
+              </div>
+              <button class="purchase-button">
+                20%OFFで<br />今すぐ申し込む！
+              </button>
+            </div>
           </div>
         </main>
+
         <footer>
           <div>&copy;2023 My Portfolio Site</div>
         </footer>
       </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
